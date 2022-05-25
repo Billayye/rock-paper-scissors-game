@@ -14,7 +14,7 @@ function getUserChoice() {
         input = prompt("Enter your move:", "");
         input = input.toLowerCase();
 
-        if (input === "rock" || input === "paper" || input === "scissors") {
+        if (input === GAME_CHOICES[0] || input === GAME_CHOICES[1] || input === GAME_CHOICES[2]) {
             isValidChoice = true;
         } else {
             alert("Invalid choice! Try again!");
@@ -23,3 +23,27 @@ function getUserChoice() {
 
     return input;
 }
+
+function playRound(userChoice, computerChoice) {
+    let result = "";
+
+    if (userChoice === GAME_CHOICES[0] && computerChoice === GAME_CHOICES[1]) {
+        result = "You lose! Paper beats Rock";
+    } else if (userChoice === GAME_CHOICES[0] && computerChoice === GAME_CHOICES[2]) {
+        result = "You win! Rock beats Scissors";
+    } else if (userChoice === GAME_CHOICES[1] && computerChoice === GAME_CHOICES[0]) {
+        result = "You win! Paper beats Rock";
+    } else if (userChoice === GAME_CHOICES[1] && computerChoice === GAME_CHOICES[2]) {
+        result = "You lose! Scissors beats Paper";
+    }  else if (userChoice === GAME_CHOICES[2] && computerChoice === GAME_CHOICES[0]) {
+        result = "You lose! Rock beats Scissors";
+    }  else if (userChoice === GAME_CHOICES[2] && computerChoice === GAME_CHOICES[1]) {
+        result = "You win! Scissors beats Paper";
+    } else {
+        result = "It is a draw! Both chose " + userChoice;
+    }
+
+    return result;
+}
+
+console.log(playRound(getUserChoice(), generateComputerChoice()));
