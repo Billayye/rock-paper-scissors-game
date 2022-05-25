@@ -46,4 +46,32 @@ function playRound(userChoice, computerChoice) {
     return result;
 }
 
-console.log(playRound(getUserChoice(), generateComputerChoice()));
+function game() {
+    let userScore = 0;
+    let computerScore = 0;
+    let currentResult = "";
+    
+    for (let i = 0; i < 5; i++) {
+        currentResult = playRound(getUserChoice(), generateComputerChoice());
+        console.log(currentResult);
+
+        if (currentResult.includes("win")) {
+            userScore++;
+        } else if (currentResult.includes("lose")) {
+            computerScore++;
+        }
+    }
+
+    console.log(`Your score: ${userScore}\nComputer's score: ${computerScore}`);
+    if (userScore > computerScore) {
+        console.log("You have won!");
+    } else if (userScore < computerScore) {
+        console.log("The computer has won! Better luck next time....");
+    } else {
+        console.log("It is a draw!");
+    }
+
+    return;
+}
+
+game();
