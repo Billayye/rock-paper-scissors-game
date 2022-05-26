@@ -7,10 +7,10 @@ function generateComputerChoice() {
 }
 
 function getUserChoice() {
-    let isValidChoice = false;
+    let validChoice = false;
     let input = "";
 
-    while (!isValidChoice) {
+    while (!validChoice) {
         input = prompt("Enter your move:", "");
         input = input.toLowerCase();
 
