@@ -15,7 +15,7 @@ function getUserChoice() {
         input = input.toLowerCase();
 
         if (input === GAME_CHOICES[0] || input === GAME_CHOICES[1] || input === GAME_CHOICES[2]) {
-            isValidChoice = true;
+            validChoice = true;
         } else {
             alert("Invalid choice! Try again!");
         }
@@ -74,4 +74,4 @@ function game() {
     return;
 }
 
-game();
+game()
