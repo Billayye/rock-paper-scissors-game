@@ -73,5 +73,3 @@ function game() {
 
     return;
 }
-
-game()
